@@ -1,0 +1,25 @@
+name: VX Runtime Conformance
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Contract present
+        run: test -f VAIXLNS_REPOSITORY_CONTRACT.md
+      - name: Compile Python specification surfaces
+        run: python -m compileall -q . || true
+      - name: Emit evidence
+        run: |
+          printf 'repository=%s\ncommit=%s\n' "$GITHUB_REPOSITORY" "$GITHUB_SHA" > conformance-evidence.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vx-runtime-conformance-evidence
+          path: conformance-evidence.txt

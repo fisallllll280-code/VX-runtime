@@ -14,12 +14,25 @@ jobs:
       - uses: actions/checkout@v4
       - name: Contract present
         run: test -f VAIXLNS_REPOSITORY_CONTRACT.md
-      - name: Compile Python specification surfaces
-        run: python -m compileall -q . || true
+      - name: Install test runner
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Compile runtime
+        run: python -m compileall -q vxruntime tests
+      - name: Execute runtime tests
+        run: python -m pytest -q
+      - name: Deterministic runtime evidence
+        run: |
+          python - <<'PY'
+          from vxruntime import ExecutionPolicy, VXRuntime
+          rt = VXRuntime(policy=ExecutionPolicy(allowed_capabilities=frozenset({"math.add"})))
+          r = rt.execute("ci-evidence-001", "math.add", {"a": 21, "b": 21}, lambda p: p["a"] + p["b"])
+          assert r.status.value == "success"
+          assert rt.replay("ci-evidence-001", lambda p: p["a"] + p["b"])
+          assert rt.verify()
+          print("execution=success")
+          print("replay=match")
+          print("ledger=valid")
+          PY
       - name: Emit evidence
         run: |
           printf 'repository=%s\ncommit=%s\n' "$GITHUB_REPOSITORY" "$GITHUB_SHA" > conformance-evidence.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: vx-runtime-conformance-evidence
-          path: conformance-evidence.txt

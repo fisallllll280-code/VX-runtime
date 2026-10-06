@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "name": "VX Runtime Contract",
+  "authority_boundary": {
+    "router": "classification_only",
+    "ledger": "authoritative_history",
+    "policy": "allow_deny_modify",
+    "orchestrator": "plan_only",
+    "runtime": "execute_only",
+    "host": "lifecycle_only"
+  },
+  "required_stages": ["interface","router","ledger","context","policy","orchestrator","capability","runtime","evidence","replay"],
+  "invariants": [
+    "classification_does_not_mutate_state",
+    "policy_precedes_execution",
+    "execution_has_stable_identity",
+    "unverified_work_is_not_verified",
+    "replay_uses_original_inputs",
+    "host_does_not_make_policy_decisions",
+    "evolution_requires_verification_and_approval"
+  ]
+}

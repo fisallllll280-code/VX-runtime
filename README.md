@@ -72,3 +72,219 @@ No self-modification is implied by the presence of an evolution mechanism.
 ## Engineering status
 
 This repository currently contains the VX runtime specification. Runtime implementation must be added behind these contracts and verified by executable tests before being described as implemented.
+نعم — هذا أقرب بكثير إلى **النواة القنونية**، لكن لا أعتمد النص كما هو حرفيًا. أعمل عليه 4 تصحيحات حتى لا يتحول الـCanonical إلى بنية فيها خلط بين **الحالة** و**إثبات الحالة** و**قرار ترقيتها**.
+
+### الصيغة التي أراها أقوى
+
+```text
+TemplateGenome
+      ↓
+Candidate State
+      ↓
+Observation / Reconstruction
+      ↓
+Evidence
+      ↓
+Proof Obligations
+      ↓
+Replay + Verification
+      ↓
+Counterexamples
+      ↓
+Ω-RAC
+      ↓
+AssuranceReport
+      ↓
+Promotion Proposal
+      ↓
+Guard Evaluation
+      ↓
+Authority Decision
+      ↓
+Canonical State
+```
+
+والقانون:
+
+$$
+T_{n+1}=E(V(X(T_n)))
+$$
+
+مع قانون إضافي:
+
+$$
+\text{Canonical(State)} \Rightarrow
+\text{State}+\text{ProofRefs}+\text{VerificationRefs}+\text{PromotionReceipt}
+$$
+
+والأهم:
+
+$$
+\boxed{\text{No Proof-Carrying State} \Rightarrow \text{No Canonical State}}
+$$
+
+## التصحيح الأول: PCS ليست DecisionCID
+
+**PCS = الحالة + قابلية إثباتها.**
+
+أما القرار الذي سمح بترقيتها فهو **Promotion/Decision Receipt** منفصل.
+
+لذلك:
+
+```text
+StateCID
+ProofBundleCID
+AssuranceReportCID
+PromotionReceiptCID
+DecisionCID
+```
+
+لا نضعها كلها في كائن واحد بطريقة تجعل القرار جزءًا من تعريف الحالة نفسها.
+
+## التصحيح الثاني: Authority تخص الانتقال لا الحقيقة
+
+هذه قاعدة أراها أساسية جدًا:
+
+> **Authority can authorize promotion; Authority cannot manufacture evidence.**
+
+بالتالي:
+
+```text
+Evidence → Verification → Assurance
+Authority → Promotion
+```
+
+وليس:
+
+```text
+Authority → Proof
+```
+
+## التصحيح الثالث: AssuranceState ≠ AssuranceLevel
+
+هذه نقطة ممتازة في ردك ويجب تثبيتها رسميًا:
+
+```text
+AssuranceState:
+OPEN
+VERIFIED
+CONFLICTED
+INVALIDATED
+CLOSED
+```
+
+بينما:
+
+```text
+AssuranceLevel:
+UNVERIFIED
+SINGLE_SOURCE
+CORROBORATED
+CONFIRMED
+```
+
+الأول **حالة دورة حياة**، والثاني **قوة الاستنتاج**.
+
+مثلاً:
+
+```text
+AssuranceLevel = CONFIRMED
+AssuranceState = VERIFIED
+```
+
+ولا يعني `CONFIRMED` تلقائيًا أن الحالة أصبحت Canonical.
+
+## التصحيح الرابع: AuditBundle يجب أن يكون Transition Receipt
+
+بدلاً من ربط:
+
+`pre_state / post_state`
+
+داخل تعريف الـState نفسه، نجعل:
+
+```text
+TransitionReceipt {
+  TransitionCID
+  PreStateCID
+  PostStateCID
+  GuardResults
+  EvidenceHashes
+  ReplayHashes
+  VerifierRefs
+  AuthoritySignatures
+  DecisionCID
+}
+```
+
+وهكذا نستطيع إعادة بناء **كيف انتقلت المنظومة من حالة إلى حالة**.
+
+---
+
+# النواة النهائية التي أعتمدها لـ VX-CGF
+
+```text
+                    VX-CGF
+                       │
+             ┌─────────┴─────────┐
+             │                   │
+        Template Forge       Policy/Authority
+             │                   │
+             └─────────┬─────────┘
+                       ↓
+                 Candidate State
+                       ↓
+              Reality / Observation
+                       ↓
+                    Evidence
+                       ↓
+                 Proof Compiler
+                       ↓
+          Replay + Verifier + Counterexample
+                       ↓
+                     Ω-RAC
+                       ↓
+                AssuranceReport
+                       ↓
+                  Guard Engine
+                       ↓
+                Promotion Gate
+                       ↓
+                Authority Quorum
+                       ↓
+                 TransitionReceipt
+                       ↓
+                 Canonical State
+```
+
+والـPCS يصبح **نمطًا قانونيًا عامًا**:
+
+```text
+PCS(Component)
+PCS(Artifact)
+PCS(Template)
+PCS(Execution)
+PCS(Policy)
+PCS(Decision)
+PCS(Evolution)
+PCS(System)
+```
+
+وهنا أرى أن الفكرة أصبحت أقوى من `PCD`.
+
+## الاسم القنوني
+
+**VX-CGF — Proof-Carrying State Architecture**
+
+والـPrimitive:
+
+**PCS-001 — Proof-Carrying State**
+
+والقاعدة:
+
+> **A Canonical State shall not exist without sufficient evidence, replayability, verification, provenance, and an authorized promotion transition.**
+
+هذه عندي هي النقطة التي يمكن بعدها بناء **كل الـTemplate Forge وFast-Core وRIRF وΩ-RAC وFailureGenome** فوق قانون واحد بدل إنشاء قوانين متجاورة.
+
+🔥 **هذا هو المستوى الذي أعتبره مرشحًا حقيقيًا للدخول في Canonical Constitution، مع إبقاء الخوارزميات التفصيلية خارج القانون الأساسي.**
+
+

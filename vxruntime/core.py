@@ -6,6 +6,7 @@ records an append-only event chain, and makes replay a pure verification step.
 
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import dataclass, asdict
 from enum import Enum
 import hashlib
@@ -65,10 +66,7 @@ class Event:
             "payload": dict(payload),
             "previous_hash": previous_hash,
         }
-        return Event(
-            **unsigned,
-            event_hash=digest(unsigned),
-        )
+        return Event(**unsigned, event_hash=digest(unsigned))
 
 
 class EventLedger:
@@ -150,7 +148,12 @@ class VXRuntime:
     ) -> Execution:
         if not execution_id:
             raise ValueError("EXECUTION_ID_REQUIRED")
-        captured_inputs = dict(inputs)
+        if execution_id in self.history:
+            raise ValueError("EXECUTION_ID_ALREADY_USED")
+
+        # Snapshot nested input structures so caller/worker mutation cannot rewrite
+        # the evidence associated with this execution.
+        captured_inputs = deepcopy(dict(inputs))
         if not self.policy.allows(capability):
             blocked = Execution(
                 execution_id=execution_id,
@@ -167,7 +170,8 @@ class VXRuntime:
             return blocked
 
         try:
-            output = worker(captured_inputs)
+            # The worker receives its own copy; it cannot mutate the retained replay input.
+            output = worker(deepcopy(captured_inputs))
             result = Execution(
                 execution_id=execution_id,
                 capability=capability,
@@ -205,7 +209,7 @@ class VXRuntime:
             raise KeyError("EXECUTION_NOT_FOUND")
         if original.status is not ExecutionStatus.SUCCESS:
             return False
-        replay_output = worker(dict(original.inputs))
+        replay_output = worker(deepcopy(dict(original.inputs)))
         return original.replay_matches(replay_output)
 
     def verify(self) -> bool:

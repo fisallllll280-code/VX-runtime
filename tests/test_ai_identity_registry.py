@@ -21,12 +21,13 @@ class AIIdentityRegistryTests(unittest.TestCase):
         self.assertFalse(result.admitted_to_lobby)
         self.assertIn("MISSING_COMPANY_NAME", result.blockers)
 
-    def test_evidence_id_required_for_verified_label(self):
+    def test_evidence_id_alone_does_not_verify_identity(self):
         result = admit_identity(AIIdentity(
             ai_name="GPT", company_name="OpenAI", agent_name="Financial Agent",
             identity_source="provider-declared", verification_evidence_id="EV-123",
         ))
-        self.assertEqual(result.identity_status, "VERIFIED")
+        self.assertEqual(result.identity_status, "DECLARED_PENDING_VERIFICATION")
+        self.assertIn("EVIDENCE_ID_PRESENT_BUT_NOT_INDEPENDENTLY_VALIDATED", result.blockers)
 
     def test_public_card_displays_company_and_status(self):
         result = admit_identity(AIIdentity(

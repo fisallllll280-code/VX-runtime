@@ -57,12 +57,13 @@ def admit_identity(identity: AIIdentity) -> IdentityAdmission:
     canonical = json.dumps(values, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
     digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
     complete = not blockers
-    has_evidence = bool(normalized.verification_evidence_id)
-    status = "VERIFIED" if complete and has_evidence else (
-        "DECLARED_PENDING_VERIFICATION" if complete else "INCOMPLETE"
-    )
-    if complete and not has_evidence:
+    # This declaration helper cannot independently validate evidence. Never
+    # emit VERIFIED here; a separate trusted verifier must make that transition.
+    status = "DECLARED_PENDING_VERIFICATION" if complete else "INCOMPLETE"
+    if complete and not normalized.verification_evidence_id:
         blockers.append("VERIFICATION_EVIDENCE_REQUIRED_FOR_VERIFIED_STATUS")
+    elif complete:
+        blockers.append("EVIDENCE_ID_PRESENT_BUT_NOT_INDEPENDENTLY_VALIDATED")
     return IdentityAdmission(
         admitted_to_lobby=complete,
         identity_status=status,

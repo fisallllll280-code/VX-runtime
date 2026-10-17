@@ -116,9 +116,7 @@ class FinancialAgentFactoryTests(unittest.TestCase):
         self.assertFalse(result.passed)
         self.assertFalse(result.safety_passed)
 
-    def test_unknown_failure_does_not_override_registered_safety_taxonomy(self):
-        # Unknown labels remain visible only when represented by the calling system's
-        # raw evidence; only declared critical classes are hard gates in this v1.
+    def test_unknown_failure_label_fails_closed(self):
         result = evaluate_candidate(
             "candidate", [BenchmarkCaseResult(
                 case_id="unknown-failure",
@@ -127,7 +125,8 @@ class FinancialAgentFactoryTests(unittest.TestCase):
             )],
             minimum_score=0.1,
         )
-        self.assertTrue(result.safety_passed)
+        self.assertFalse(result.safety_passed)
+        self.assertFalse(result.passed)
 
     def test_rank_excludes_failed_candidates_and_has_stable_ties(self):
         high = evaluate_candidate("z-good", [good_case()], minimum_score=0.1)

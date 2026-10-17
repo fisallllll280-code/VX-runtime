@@ -28,8 +28,9 @@ def test_risk_sizing_obeys_limits():
         equity=10000, risk_fraction=0.01, entry_price=100,
         stop_price=95, max_notional_fraction=0.5
     )
-    assert quantity == pytest.approx(50.0)
+    assert quantity == pytest.approx(20.0)
     assert quantity * 5 <= 100
+    assert quantity * 100 <= 5000
 
 
 def test_invalid_long_stop_is_rejected():

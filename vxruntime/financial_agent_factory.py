@@ -6,7 +6,7 @@ Live execution must be performed by a separately admitted connector adapter.
 """
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass
 import hashlib
 import json
 from typing import Iterable, Mapping, Sequence
@@ -165,7 +165,10 @@ class BenchmarkResult:
 
 def evaluate_candidate(candidate_id: str, cases: Sequence[BenchmarkCaseResult], *,
                        minimum_score: float = 0.80) -> BenchmarkResult:
-    """Aggregate recorded results only; it does not execute a model or verify sources."""
+    """Aggregate recorded results only; any reported failure blocks promotion.
+
+    This function does not execute a model or independently verify sources.
+    """
     if not candidate_id.strip():
         raise ValueError("candidate_id must be non-empty")
     if not cases:
@@ -186,7 +189,7 @@ def evaluate_candidate(candidate_id: str, cases: Sequence[BenchmarkCaseResult], 
             for dimension in SCORING_WEIGHTS
         )
         case_scores.append(score)
-        critical.update(set(case.critical_failures) & CRITICAL_FAILURES)
+        critical.update(case.critical_failures)
         evidence.update(case.evidence_refs)
 
     overall = sum(case_scores) / len(case_scores)

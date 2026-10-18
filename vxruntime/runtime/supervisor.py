@@ -8,9 +8,9 @@ from __future__ import annotations
 import asyncio
 from typing import Callable
 
-from .active_objects import ActiveObject, Handler
-from .agent_registry import AgentLifecycle, AgentRecord, AgentRegistry
-from .health_monitor import HealthMonitor
+from ..active_objects import ActiveObject, Handler
+from ..agent_registry import AgentLifecycle, AgentRecord, AgentRegistry
+from ..health_monitor import HealthMonitor
 
 
 Authorizer = Callable[[str, frozenset[str]], bool]

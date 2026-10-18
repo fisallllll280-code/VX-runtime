@@ -1,42 +1,51 @@
-# VX Active Objects workflow (implementation slice)
+# VX Active Objects and Bootstrap workflow
 
-Status: **implemented on a feature branch; execution evidence pending**.
+Status: implementation and CI tests are present on the feature branch. Production durability and OS-level isolation are not claimed.
 
-## Contract
+## Implemented modules
 
-- Each `ActiveObject` owns a mailbox and handles one message at a time.
-- Each accepted task ID is unique within that actor instance; duplicate IDs are rejected instead of silently replacing work.
-- Payloads are deep-copied at submission so later caller mutation cannot rewrite the queued input.
-- Handler exceptions become explicit `ActorResult(ok=False, error_code="HANDLER_FAILED")` records. They do not terminate the actor's message loop.
-- Graceful close rejects new submissions and queues a stop marker behind already accepted work.
-- Results are process-local and in-memory in this first slice. This is not durable delivery, exactly-once execution, cross-process isolation, or a security sandbox.
+- `vxruntime/active_objects.py`: actor-owned mailbox, serialized message handling, payload snapshot, explicit success/failure result, graceful close.
+- `vxruntime/agent_registry.py`: lifecycle states and transition events carrying UTC timestamp, actor, and evidence. Connectivity is derived from registry state plus a live runtime task and active actor state.
+- `vxruntime/task_scheduler.py`: rejects unconnected agents, duplicate task IDs, and capabilities not declared by the registered agent before mailbox submission.
+- `vxruntime/health_monitor.py`: checks lifecycle state, asyncio task liveness, and actor state.
+- `vxruntime/runtime/supervisor.py`: fail-closed authorization, startup sequencing, graceful stop, and bounded restart attempts.
+- `tests/test_active_objects.py` and `tests/test_vx_workflow.py`: concurrency, payload isolation, failure reporting, authorization rejection, connectivity, health, lifecycle evidence, bounded recovery, and stop behavior.
 
-## Workflow
+## Lifecycle
 
 ```text
-Intent / Task
-    -> Scheduler validates task identity and capability
-    -> Agent mailbox accepts immutable-by-ownership message snapshot
-    -> ActiveObject serializes handler execution
-    -> ActorResult records success or failure
-    -> Verification checks result and required evidence
-    -> Ledger records verified transition
+DISCOVERED -> VALIDATED -> AUTHORIZED -> STARTING -> RUNNING
+       |           |            |           |
+       +--------> FAILED     QUARANTINED   FAILED
+RUNNING -> FAILED | STOPPED | QUARANTINED | RECOVERY_PENDING
+RECOVERY_PENDING -> STARTING -> RUNNING
+RECOVERY_PENDING -> FAILED (recovery budget exhausted)
 ```
 
-The scheduler, capability policy, durable ledger, and verification gate remain separate responsibilities. An actor result is not itself proof that the task is correct, authorized, or VERIFIED.
+Every lifecycle transition requires an actor identity and non-empty evidence, and records a UTC timestamp. Authorization defaults to deny unless the caller supplies an authorizer that explicitly permits the capability set. A discovered or failed agent is never reported as connected merely because its record exists.
 
-## Suggested integration sequence
+## Workflow contract
 
-1. Add a bounded scheduler that routes only contract-valid messages to registered actors.
-2. Add execution identity and capability checks before submission.
-3. Persist accepted messages and results through the existing VX event ledger before claiming crash recovery.
-4. Add supervisor health checks, cancellation policy, and restart semantics.
-5. Add integration tests for ledger replay, authorization denial, cancellation, and worker restart.
-6. Run the complete repository test suite and CI; attach the resulting run URL and commit SHA before promoting the implementation status.
+```text
+Discover agent
+ -> validate identity and declared capabilities
+ -> explicit authorization
+ -> start ActiveObject
+ -> bind live runtime task in registry
+ -> health-check actual task and actor
+ -> capability-gated task dispatch
+ -> collect ActorResult
+ -> verify result and evidence
+ -> stop or bounded recovery
+```
 
-## Limits
+An `ActorResult` is not itself proof that the result is correct, and task acceptance is not task completion. A production integration must connect the verification result and execution event to VX's durable evidence ledger before making any VERIFIED or crash-recovery claim.
 
-- A single actor is sequential; throughput comes from multiple actors and a bounded scheduler.
+## Limits / follow-up work
+
+- Mailboxes, registry, lifecycle events, and task-ID sets are in-memory; process crashes lose them.
+- The scheduler checks declared agent capabilities, not a complete policy engine or signed authority receipt.
+- Recovery restarts the actor within a bounded budget but does not restore unacknowledged messages or promise exactly-once side effects.
 - `asyncio` provides cooperative concurrency, not CPU parallelism for blocking handlers.
-- Process isolation is required for untrusted code or stronger fault/security boundaries.
-- In-memory queues lose pending work on process failure. Durable queue/ledger integration is a separate required step for recovery guarantees.
+- Untrusted code needs process/container/VM isolation and OS resource limits.
+- Next integration gate: persist transitions and task outcomes into the existing event ledger; then test crash/replay and independent evidence verification.

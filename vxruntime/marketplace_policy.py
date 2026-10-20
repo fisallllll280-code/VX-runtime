@@ -16,7 +16,7 @@ SUPPORTED_PRODUCT_TYPES = frozenset({"apps", "agents", "tools", "apis", "workflo
 
 @dataclass(frozen=True)
 class MarketplacePolicy:
-    standard_commission_bps: int = 1_000
+    standard_commission_bps: int = 3_000
     creator_launch_commission_bps: int = 500
     payout_cadence: str = "WEEKLY_AFTER_SETTLEMENT_AND_VERIFICATION"
     launch_country: str = "SA"

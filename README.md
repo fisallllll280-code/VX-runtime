@@ -287,4 +287,48 @@ PCS(System)
 
 🔥 **هذا هو المستوى الذي أعتبره مرشحًا حقيقيًا للدخول في Canonical Constitution، مع إبقاء الخوارزميات التفصيلية خارج القانون الأساسي.**
 
+VX Universal Intelligence & Engineering Fabric
 
+Status: PROPOSED — awaiting repository implementation and verification.
+
+Objective
+
+Transform VX into a governed AI engineering tool capable of understanding requests, researching solutions, designing systems, writing code and documentation, coordinating AI models and agents, invoking authorized tools, running tests, and presenting verifiable outcomes through interactive interfaces.
+
+Required Interfaces
+
+1. VX Mind Console: bilingual Arabic/English workspace with a real conversation history.
+2. Model Gateway: provider adapters, model selection, connection health, and explicit configuration.
+3. Agent Orchestrator: task decomposition, delegation, result comparison, and review.
+4. Universal Tool Fabric: MCP and API integrations with capability discovery and scoped permissions.
+5. Engineering Workspace: repository navigation, file changes, diffs, test output, and proposed pull requests.
+6. Evidence Console: execution events, logs, test results, provenance, hashes, and promotion decisions.
+7. System Registry: canonical links between repositories, interfaces, agents, models, tools, and capabilities.
+
+Execution Lifecycle
+
+DISCOVER → PLAN → PROPOSE → AUTHORIZE → EXECUTE → TEST → VERIFY → PROMOTE
+
+Models and agents may propose changes. VX evaluates them against policy. Governance authorizes permitted operations. Evidence determines whether a result can be promoted.
+
+Engineering Requirements
+
+* Inspect existing repository files, workflows, dependencies, and tests before implementation.
+* Preserve existing canonical content and historical index identities.
+* Use Rust for runtime and execution controls, Python for orchestration and integrations, and YAML for declarative configuration where compatible with the existing codebase.
+* Use isolated execution environments and explicit permission boundaries.
+* Require human approval for sensitive or irreversible operations.
+* Never represent a disconnected tool, unexecuted test, or unverified deployment as operational.
+* Add tests for interfaces, agent orchestration, tool permissions, failure handling, evidence integrity, and promotion gates.
+
+Evidence States
+
+* DESIGN: specification exists.
+* IMPLEMENTED: implementation exists in the repository.
+* RUNNING: execution has been observed and logged.
+* VERIFIED: required checks passed with inspectable evidence.
+* UNKNOWN: evidence is insufficient.
+
+Acceptance Criteria
+
+A feature is accepted only when its implementation, tests, operational dependencies, and evidence are traceable to repository files and reproducible checks. Failed or missing evidence blocks promotion; it does not silently become success.

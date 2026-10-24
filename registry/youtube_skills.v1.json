@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "source": "Jakeschincariol/youtube-agent-skill",
+  "upstream_commit": "a2feb2104981a375ffd4f87ee04f4f5344ac43c6",
+  "license": "MIT",
+  "status": "REGISTERED_NOT_INSTALLED",
+  "execution_enabled": false,
+  "auto_publish": false,
+  "external_spend_sar": 0,
+  "skills": [
+    {
+      "id": "yt-audit",
+      "source": "skills/yt-audit/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-chapters",
+      "source": "skills/yt-chapters/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-comment",
+      "source": "skills/yt-comment/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-edit",
+      "source": "skills/yt-edit/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-package",
+      "source": "skills/yt-package/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-plan",
+      "source": "skills/yt-plan/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-retention",
+      "source": "skills/yt-retention/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-script",
+      "source": "skills/yt-script/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-seo",
+      "source": "skills/yt-seo/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-shorts",
+      "source": "skills/yt-shorts/SKILL.md",
+      "enabled": false
+    },
+    {
+      "id": "yt-viral",
+      "source": "skills/yt-viral/SKILL.md",
+      "enabled": false
+    }
+  ],
+  "python_tools": [
+    {
+      "skill": "yt-chapters",
+      "path": "skills/yt-chapters/chapters.py",
+      "git_blob_sha": "2a86ec660720c238a9d72a11b2801c5585fe3dc0",
+      "executable": false
+    },
+    {
+      "skill": "yt-edit",
+      "path": "skills/yt-edit/deadair.py",
+      "git_blob_sha": "dde0c9886aa412d7368fd3c964d883699c2d142a",
+      "executable": false
+    },
+    {
+      "skill": "yt-package",
+      "path": "skills/yt-package/title.py",
+      "git_blob_sha": "7cbb8169f0f8f171bfe2bd0743c868ce341fea37",
+      "executable": false
+    },
+    {
+      "skill": "yt-retention",
+      "path": "skills/yt-retention/retention.py",
+      "git_blob_sha": "a7df80972b3a90e638dead0df7288aa777778226",
+      "executable": false
+    },
+    {
+      "skill": "yt-script",
+      "path": "skills/yt-script/hookscore.py",
+      "git_blob_sha": "2f65da556410e4e4418442f5eec41921fe7f53a2",
+      "executable": false
+    },
+    {
+      "skill": "yt-viral",
+      "path": "skills/yt-viral/swipe.py",
+      "git_blob_sha": "f84b72e742ab846270d79a79931dd25a86f4a62a",
+      "executable": false
+    }
+  ]
+}

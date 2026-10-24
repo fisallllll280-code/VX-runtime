@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "release": "VX-APP-PREVIEW-001",
+  "scope": "local-agent-builder-preview",
+  "release_state": "HOLD_NOT_PUBLISHED",
+  "checks": {
+    "ci_exact_head": "NOT_VERIFIED",
+    "agent_builder_http": "NOT_VERIFIED",
+    "mobile_http": "NOT_VERIFIED",
+    "security_authentication": "NOT_IMPLEMENTED",
+    "csrf_protection": "NOT_IMPLEMENTED",
+    "persistent_storage": "NOT_IMPLEMENTED",
+    "tls_delivery": "NOT_CONFIGURED",
+    "iphone_device": "NOT_TESTED",
+    "operator_release_approval": "NOT_GRANTED"
+  },
+  "policy": {
+    "external_spend_sar": 0,
+    "public_deployment": false,
+    "merge_to_main": false,
+    "protected_files_unchanged": true
+  },
+  "source_branch": "feat/vx-youtube-skills-20261024"
+}

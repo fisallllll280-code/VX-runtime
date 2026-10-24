@@ -1,0 +1,35 @@
+name: VX Social Command isolated checks
+
+on:
+  push:
+    branches:
+      - feat/vx-social-command-v1-20261024
+    paths:
+      - tools/vx_social_command.py
+      - tests/test_vx_social_command.py
+      - .github/workflows/vx-social-command.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile Python module
+        run: python -m py_compile tools/vx_social_command.py tests/test_vx_social_command.py
+      - name: Run social command unit tests
+        run: python -m unittest discover -s tests -p test_vx_social_command.py -v
+      - name: Verify no live social connectivity
+        run: |
+          python tools/vx_social_command.py --ledger /tmp/vx-social-test-ledger.json status
+          if python tools/vx_social_command.py --ledger /tmp/vx-social-test-ledger.json publish POST-000001 --actor owner; then
+            echo 'ERROR: publish unexpectedly enabled'
+            exit 1
+          fi

@@ -1,0 +1,32 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VX | Agent Builder</title><style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#edf5ff;background:#081322}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#163e50,#081322 60%);min-height:100vh}
+main{max-width:950px;margin:auto;padding:24px 16px}h1{font-size:clamp(27px,5vw,43px);margin:12px 0}p,small{color:#adbed1}
+header{display:flex;justify-content:space-between;gap:10px;align-items:center}a{color:#7ce3d6}
+mark{background:#264a52;color:#8ff3db;border-radius:10px;padding:6px 10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.card{background:#101f33;border:1px solid #30475b;border-radius:18px;padding:22px}h2{margin:0 0 18px;font-size:18px}
+label{display:block;margin:15px 0;color:#bdcee0;font-size:14px}input,select,textarea{width:100%;display:block;margin-top:6px;border-radius:9px;border:1px solid #416078;background:#0a1526;color:white;padding:12px;font:inherit}
+textarea{min-height:128px;resize:vertical}button{border:0;border-radius:11px;padding:12px 18px;background:#6addcf;color:#072a2a;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.5}.tools{display:flex;flex-wrap:wrap;gap:14px}.tools label{margin:0}
+.agent{border-bottom:1px solid #30475b;padding:10px 0}.agent strong{color:#8ee7df}pre{white-space:pre-wrap;word-break:break-word;direction:ltr;text-align:left;font-size:11px}
+@media(max-width:690px){.grid{grid-template-columns:1fr}}
+</style></head><body><main><header><div><strong style="color:#75e6d7">VX Ω</strong> / Agent Factory</div><a href="/">غرفة القيادة</a></header>
+<h1>مصنع وكلاء VX</h1><p>أنشئ تعريف وكيل تخصصي قابل للمراجعة. لا يتم تشغيل الوكيل أو منحه مفاتيح أو صلاحيات كتابة.</p><mark>PROPOSAL ONLY · ZERO SPEND</mark>
+<div class="grid"><section class="card"><h2>إنشاء وكيل جديد</h2><form id="form">
+<label>معرّف الوكيل<input id="id" required pattern="[a-z][a-z0-9-]{2,39}" placeholder="vx-reviewer-01"></label>
+<label>التخصص<select id="role"><option value="coding">برمجة</option><option value="research">بحث</option><option value="testing">اختبارات</option><option value="security">أمن</option><option value="design">تصميم</option><option value="integration">تكامل</option></select></label>
+<label>تعليمات الوكيل<textarea id="instructions" required minlength="10" maxlength="2000" placeholder="راجع الشيفرة واقترح تحسينات مع توثيق الأدلة..."></textarea></label>
+<p>أدوات القراءة المسموحة</p><div class="tools"><label><input type="checkbox" value="Read" checked> Read</label><label><input type="checkbox" value="Grep"> Grep</label><label><input type="checkbox" value="Glob"> Glob</label></div>
+<p><button type="submit" id="save">إنشاء تعريف الوكيل</button></p></form><p id="notice" role="status" aria-live="polite"></p></section>
+<section class="card"><h2>سجل الوكلاء المقترحين</h2><p>محلي ومؤقت — يُمسح عند إعادة تشغيل الخادم</p><div id="agents">جارٍ القراءة...</div><h2>آخر دليل</h2><pre id="receipt">لا يوجد بعد</pre></section></div></main>
+<script>
+const $=x=>document.getElementById(x);
+async function load(){try{const r=await fetch('/api/agents',{cache:'no-store'});const j=await r.json();$('agents').replaceChildren();if(!j.agents.length)$('agents').textContent='لا توجد تعريفات بعد';for(const a of j.agents){const d=document.createElement('div');d.className='agent';const t=document.createElement('strong');t.textContent=a.agent_id+' · '+a.role;const p=document.createElement('p');p.textContent=a.status+' · '+a.tools.join(', ');d.append(t,p);$('agents').append(d)}}catch(e){$('agents').textContent='الخادم غير متاح'}}
+$('form').addEventListener('submit',async e=>{e.preventDefault();$('save').disabled=true;try{
+const payload={agent_id:$('id').value,role:$('role').value,instructions:$('instructions').value,tools:[...document.querySelectorAll('.tools input:checked')].map(x=>x.value)};
+const r=await fetch('/api/agents',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const j=await r.json();
+if(!r.ok)throw Error(j.error||r.status);$('notice').textContent='تم تسجيل المقترح محليًا دون تشغيله';$('receipt').textContent=JSON.stringify(j.agent,null,2);$('form').reset();load()
+}catch(err){$('notice').textContent='رفض الطلب: '+err.message}finally{$('save').disabled=false}});
+load();
+</script></body></html>

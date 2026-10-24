@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "source": {
+    "repository": "https://github.com/msitarzewski/agency-agents",
+    "license": "MIT (verify LICENSE at pinned revision before copying)",
+    "revision": "UNPINNED",
+    "inspection_state": "UPSTREAM_README_REVIEWED"
+  },
+  "status": "PROPOSED_NOT_INSTALLED",
+  "vx_owner": "VX",
+  "transport": "Claude Code agent definitions (Markdown); not executable services",
+  "default_policy": {
+    "execution_enabled": false,
+    "auto_install": false,
+    "network_egress": false,
+    "external_spend_sar": 0,
+    "write_authority": false,
+    "merge_authority": false,
+    "production_access": false
+  },
+  "candidate_roles": [
+    {
+      "id": "software_engineer",
+      "division": "engineering",
+      "vx_capability": "coding.proposal"
+    },
+    {
+      "id": "security_reviewer",
+      "division": "security",
+      "vx_capability": "security.review"
+    },
+    {
+      "id": "test_engineer",
+      "division": "testing",
+      "vx_capability": "testing.design"
+    },
+    {
+      "id": "research_analyst",
+      "division": "research",
+      "vx_capability": "research.proposal"
+    },
+    {
+      "id": "design_reviewer",
+      "division": "design",
+      "vx_capability": "design.review"
+    }
+  ],
+  "admission": [
+    "pin upstream commit SHA",
+    "review exact agent prompt content and license",
+    "scan for prompt injection and unsafe tool use",
+    "map each agent to existing VX capability and identity",
+    "enforce read-only sandbox and budget zero",
+    "run adversarial tests and independent evidence checks",
+    "explicit human approval for privileged actions"
+  ],
+  "proof_state": "NO_RUNTIME_EVIDENCE"
+}

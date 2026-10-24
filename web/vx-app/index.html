@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101827"><title>VX | Reality Forge</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#eef3fc;background:#09111f}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 25% 3%,#183b4d,#09111f 55%)}
+header,main{max-width:970px;margin:auto;padding:20px}.brand{letter-spacing:3px;font-size:30px;font-weight:850;color:#7ddcd2}.sub{color:#9cafc6;font-size:13px}
+h1{font-size:clamp(25px,5vw,45px);margin:24px 0 8px}.summary{color:#aebfd5;line-height:1.9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:26px 0}
+.card{background:#101e32;border:1px solid #294159;border-radius:18px;padding:20px;box-shadow:0 15px 40px #0002}
+.card h2{font-size:15px;font-weight:600;color:#aebfd5;margin:0 0 15px}
+.value{font-size:24px;font-weight:750}.status{color:#80e7bf}.hold{color:#f9ca79}
+button{background:#5ce0d5;color:#052329;border:0;border-radius:12px;padding:13px 20px;font-weight:750;cursor:pointer;font-size:15px}
+button:disabled{opacity:.5;cursor:wait}input{background:#0b1729;border:1px solid #38516b;border-radius:10px;padding:12px;color:white;width:85px;font-size:16px}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+pre{direction:ltr;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#bee2da}
+small{color:#afbed3}footer{color:#7f91a9;font-size:12px;margin:30px 0 10px}
+@media(max-width:480px){header,main{padding:16px}.grid{grid-template-columns:1fr 1fr}.card{padding:14px}.value{font-size:20px}}
+</style></head><body>
+<header><div class="brand">VX <span style="color:#fff;font-size:13px;letter-spacing:0">Ω Reality Forge</span></div>
+<div class="sub">Sovereign Execution · Mobile Control</div></header>
+<main><h1>غرفة تشغيل VX</h1><p class="summary">واجهة تجريبية متصلة بمحرك VX المحلي. لا تدّعي وجود اتصال بنماذج أو مستودعات لم يتم إثباته.</p>
+<section class="grid" aria-label="حالة النظام">
+<div class="card"><h2>المحرك المحلي</h2><div class="value" id="runtime">جارٍ الفحص</div></div>
+<div class="card"><h2>سلامة دفتر الأدلة</h2><div class="value" id="ledger">—</div></div>
+<div class="card"><h2>التنفيذات المسجلة</h2><div class="value" id="count">—</div></div>
+<div class="card"><h2>النماذج الخارجية</h2><div class="value hold">غير متصلة</div></div>
+</section>
+<section class="card"><h2>قدرة اختبارية حقيقية: math.add</h2>
+<p class="summary">يشغّل VX عملية محلية مصرحًا بها، ويحفظ بصمات المدخلات والمخرجات في سجل الأدلة المؤقت.</p>
+<div class="controls"><label>العدد الأول <input id="a" type="number" min="-100000" max="100000" value="21"></label>
+<label>العدد الثاني <input id="b" type="number" min="-100000" max="100000" value="21"></label>
+<button id="run">تنفيذ واستخراج الدليل</button></div>
+<div aria-live="polite"><p id="answer"></p><pre id="receipt"></pre></div>
+</section>
+<footer>LOCAL DEMO · NO DEPLOYMENT · NO EXTERNAL SPEND · NO CANONICAL MUTATION</footer></main>
+<script>
+const el=id=>document.getElementById(id);
+async function status(){try{const r=await fetch('/api/status',{cache:'no-store'});if(!r.ok)throw Error(r.status);const j=await r.json();el('runtime').textContent=j.runtime;el('runtime').className='value status';el('ledger').textContent=j.ledger_valid?'VALID':'INVALID';el('count').textContent=j.execution_count;}catch(e){el('runtime').textContent='OFFLINE';el('ledger').textContent='UNKNOWN';}}
+el('run').addEventListener('click',async()=>{el('run').disabled=true;el('answer').textContent='جارٍ التنفيذ...';try{
+const response=await fetch('/api/demo',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({a:Number(el('a').value),b:Number(el('b').value)})});
+const j=await response.json();if(!response.ok)throw Error(j.error||response.status);
+el('answer').textContent='الناتج: '+j.output+' | حالة التنفيذ: '+j.status;
+el('receipt').textContent=JSON.stringify(j,null,2);await status();
+}catch(e){el('answer').textContent='فشل التنفيذ: '+e.message;}finally{el('run').disabled=false;}});
+status();
+</script></body></html>

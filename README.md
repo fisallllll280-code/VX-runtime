@@ -1,5 +1,13 @@
 # VX Runtime
 
+## Capability Harvester reference core
+
+The SQLite capability inventory, compatibility policy checks, and bounded
+inert-artifact Evidence Runner are implemented over the existing VX runtime.
+See [implementation, validation and integration limits](docs/CAPABILITY_HARVESTER_V1.md).
+Integration remains `PENDING SOURCE VALIDATION`; canonical authority stays with
+VAIXLNS. This reference does not execute submitted library code.
+
 VX is a governed execution core, not a generic chatbot.
 
 ## Integrated operating model
@@ -332,3 +340,4 @@ Evidence States
 Acceptance Criteria
 
 A feature is accepted only when its implementation, tests, operational dependencies, and evidence are traceable to repository files and reproducible checks. Failed or missing evidence blocks promotion; it does not silently become success.
+

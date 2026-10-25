@@ -1,0 +1,453 @@
+{
+  "schema": "vx.agent.reconciliation.v1",
+  "entries": 49,
+  "candidate_links": [
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-001",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Index Engineer",
+      "shared_terms": [
+        "index"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-002",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Novelty & Lineage",
+      "shared_terms": [
+        "lineage"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-003",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-004",
+      "shared_terms": [
+        "analyst"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-004",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-008",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-004",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Architecture Synthesis",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-004",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Architecture Auditor",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-004",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::ARCHITECT",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-006",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Architecture Auditor",
+      "shared_terms": [
+        "audit"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-007",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::INNOVATOR",
+      "shared_terms": [
+        "innovate"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-008",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Architecture Synthesis",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-008",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Architecture Auditor",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-008",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::ARCHITECT",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-009",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Security Adversary",
+      "shared_terms": [
+        "secure"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-009",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Security Reviewer",
+      "shared_terms": [
+        "secure"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-010",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Proof Integrity",
+      "shared_terms": [
+        "proof"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-010",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Verification Engineer",
+      "shared_terms": [
+        "verify"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-010",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::VERIFIER",
+      "shared_terms": [
+        "verify"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-011",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Integration Engineer",
+      "shared_terms": [
+        "integration"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-011",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::EXECUTOR",
+      "shared_terms": [
+        "execute"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-012",
+      "right": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Archive Recovery",
+      "shared_terms": [
+        "recover"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-012",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Operations Console Designer",
+      "shared_terms": [
+        "operations"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-013",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::EVOLUTION",
+      "shared_terms": [
+        "evolution"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Source Discovery",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Source Cartographer",
+      "shared_terms": [
+        "discover"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Architecture Synthesis",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Architecture Auditor",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Architecture Synthesis",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::ARCHITECT",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Implementation Planner",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::PLANNER",
+      "shared_terms": [
+        "planner"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Security Adversary",
+      "right": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Security Reviewer",
+      "shared_terms": [
+        "secure"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Governance Review",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::GOVERNANCE",
+      "shared_terms": [
+        "govern"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Architecture Auditor",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::ARCHITECT",
+      "shared_terms": [
+        "architect"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    },
+    {
+      "left": "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Verification Engineer",
+      "right": "fisallllll280-code/NEXENT::NEXENT specialist roles::VERIFIER",
+      "shared_terms": [
+        "verify"
+      ],
+      "relation": "OVERLAP_CANDIDATE_NOT_IDENTITY"
+    }
+  ],
+  "capability_terms": {
+    "adversarial": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-009"
+    ],
+    "adversary": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Security Adversary"
+    ],
+    "analyst": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-003",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-004"
+    ],
+    "archaeologist": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-001"
+    ],
+    "architect": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::ARCHITECT",
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Architecture Auditor",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-004",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-008",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Architecture Synthesis"
+    ],
+    "archive": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Archive Recovery"
+    ],
+    "atomizer": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Claim Atomizer"
+    ],
+    "audit": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Architecture Auditor",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-006"
+    ],
+    "capability": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-003"
+    ],
+    "cartographer": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Source Cartographer"
+    ],
+    "claim": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Claim Atomizer"
+    ],
+    "console": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Operations Console Designer"
+    ],
+    "contract": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Engineering Contract"
+    ],
+    "contradiction": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-006"
+    ],
+    "coordinator": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Release Coordinator"
+    ],
+    "counterevidence": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Counterevidence"
+    ],
+    "critic": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::CRITIC"
+    ],
+    "curator": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Session Curator"
+    ],
+    "data": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::DATA"
+    ],
+    "designer": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Operations Console Designer"
+    ],
+    "discover": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Source Cartographer",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Source Discovery"
+    ],
+    "evidence": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-005"
+    ],
+    "evolution": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::EVOLUTION",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-013"
+    ],
+    "execute": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::EXECUTOR",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-011"
+    ],
+    "forge": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-008"
+    ],
+    "govern": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::GOVERNANCE",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Governance Review"
+    ],
+    "identity": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-002"
+    ],
+    "implementation": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Implementation Planner"
+    ],
+    "index": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Index Engineer",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-001"
+    ],
+    "innovate": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::INNOVATOR",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-007"
+    ],
+    "integration": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Integration Engineer",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-011"
+    ],
+    "integrity": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Proof Integrity"
+    ],
+    "judge": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-013"
+    ],
+    "lineage": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-002",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Novelty & Lineage"
+    ],
+    "mathematics": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::MATHEMATICS"
+    ],
+    "memory": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::MEMORY"
+    ],
+    "meta": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-013"
+    ],
+    "novelty": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Novelty & Lineage"
+    ],
+    "operations": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Operations Console Designer",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-012"
+    ],
+    "orchestrator": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Orchestrator"
+    ],
+    "physics": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::PHYSICS"
+    ],
+    "planner": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::PLANNER",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Implementation Planner"
+    ],
+    "proof": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-010",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Proof Integrity"
+    ],
+    "reality": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-006"
+    ],
+    "recover": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-012",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Archive Recovery"
+    ],
+    "release": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Release Coordinator"
+    ],
+    "replay": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Test & Replay"
+    ],
+    "research": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-005"
+    ],
+    "resolver": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-002"
+    ],
+    "reviewer": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Security Reviewer"
+    ],
+    "search": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-008"
+    ],
+    "secure": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Security Reviewer",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-009",
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Security Adversary"
+    ],
+    "session": [
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Session Curator"
+    ],
+    "synthesis": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Architecture Synthesis"
+    ],
+    "synthesizer": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-007"
+    ],
+    "test": [
+      "fisallllll280-code/VAIXLNS::VAIXLNS research handoff roles::Test & Replay"
+    ],
+    "van": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::VAN"
+    ],
+    "verify": [
+      "fisallllll280-code/NEXENT::NEXENT specialist roles::VERIFIER",
+      "fisallllll280-code/VAIXLNS-unified::VAIXLNS-unified config::Verification Engineer",
+      "fisallllll280-code/VAIXLNS::VAIXLNS canonical registry::AG-010"
+    ]
+  },
+  "uncovered_requested_capabilities": [
+    "finance",
+    "simulate",
+    "deploy"
+  ],
+  "activation_state": "HOLD_NOT_LIVE_PROBED",
+  "identity_merges": 0,
+  "authorized_runtime_agents": 0,
+  "decision": "REVIEW_CAPABILITY_CONTRACTS_BEFORE_ACTIVATION"
+}

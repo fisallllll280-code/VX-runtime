@@ -28,8 +28,9 @@ class FabricTests(unittest.TestCase):
             f.register("reader","knowledge",["read"])
             with self.assertRaises(PermissionError):
                 f.publish("reader","x","c","source_index",{"x":1})
+            f.register("writer","knowledge",["save"],"write_proposed")
             with self.assertRaises(ValueError):
-                f.publish("reader","x","c","not-an-index",{"x":1})
+                f.publish("writer","x","c","not-an-index",{"x":1})
             with self.assertRaises(PermissionError):
                 f.recall("unknown")
             f.close()

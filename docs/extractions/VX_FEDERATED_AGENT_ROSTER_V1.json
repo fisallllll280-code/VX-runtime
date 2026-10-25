@@ -1,0 +1,341 @@
+{
+  "schema": "vx.agent.extraction.review.v1",
+  "status": "SOURCE_REFERENCED_UNVERIFIED",
+  "entry_count": 49,
+  "unique_agent_count": "NOT_RECONCILED",
+  "running_agent_count": "NOT_VERIFIED",
+  "sources": [
+    {
+      "group": "VAIXLNS canonical registry",
+      "repository": "fisallllll280-code/VAIXLNS",
+      "path": "registry/agent_registry.v1.json",
+      "entry_count": 13,
+      "entries": [
+        {
+          "id": "AG-001",
+          "name": "Index Archaeologist",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-002",
+          "name": "Identity & Lineage Resolver",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-003",
+          "name": "Capability Analyst",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-004",
+          "name": "Architecture Analyst",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-005",
+          "name": "Research / Evidence Agent",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-006",
+          "name": "Contradiction & Reality Auditor",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-007",
+          "name": "Innovation Synthesizer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-008",
+          "name": "Architecture Search / Forge Agent",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-009",
+          "name": "Adversarial / Security Agent",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-010",
+          "name": "Verification & Proof Agent",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-011",
+          "name": "Runtime / Integration Agent",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-012",
+          "name": "Operations / Recovery Agent",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": "AG-013",
+          "name": "Meta-Evolution Judge",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "group": "VAIXLNS research handoff roles",
+      "repository": "fisallllll280-code/VAIXLNS",
+      "path": "docs/agents/AGENT_FABRIC_V1.md",
+      "entry_count": 13,
+      "entries": [
+        {
+          "id": null,
+          "name": "Orchestrator",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Source Discovery",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Archive Recovery",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Claim Atomizer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Novelty & Lineage",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Counterevidence",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Architecture Synthesis",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Engineering Contract",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Implementation Planner",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Security Adversary",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Test & Replay",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Proof Integrity",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Governance Review",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "group": "VAIXLNS-unified config",
+      "repository": "fisallllll280-code/VAIXLNS-unified",
+      "path": "config/vx_agents.v1.json",
+      "entry_count": 9,
+      "entries": [
+        {
+          "id": null,
+          "name": "Source Cartographer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Session Curator",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Index Engineer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Architecture Auditor",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Security Reviewer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Verification Engineer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Integration Engineer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Operations Console Designer",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "Release Coordinator",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "group": "NEXENT specialist roles",
+      "repository": "fisallllll280-code/NEXENT",
+      "path": "docs/NEXENT_SPECIALIST_AGENT_SYSTEM.md",
+      "entry_count": 14,
+      "entries": [
+        {
+          "id": null,
+          "name": "ARCHITECT",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "PLANNER",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "ENGINEER",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "MATHEMATICS",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "PHYSICS",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "DATA",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "VERIFIER",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "INNOVATOR",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "MEMORY",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "GOVERNANCE",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "EXECUTOR",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "VAN",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "CRITIC",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        },
+        {
+          "id": null,
+          "name": "EVOLUTION",
+          "state": "EXTRACTED_FROM_SOURCE",
+          "runtime": "NOT_VERIFIED"
+        }
+      ]
+    }
+  ],
+  "guardrails": [
+    "do not equate roles with running workers",
+    "no silent deduplication",
+    "source registries authoritative",
+    "no canonical promotion or deployment"
+  ]
+}

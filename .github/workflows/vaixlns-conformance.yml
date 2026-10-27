@@ -35,6 +35,17 @@ jobs:
           PY
       - name: External integration boundary
         run: python -m pytest -q tests/test_external_integration.py
+      - name: Municipal local E2E and restart
+        run: |
+          python -m vxruntime.municipal_demo --output-dir /tmp/vx-municipal-ci
+          python -m vxruntime.municipal_demo --output-dir /tmp/vx-municipal-ci
+      - name: Upload municipal local test evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: municipal-local-test-evidence
+          path: |
+            /tmp/vx-municipal-ci/metrics.json
+            /tmp/vx-municipal-ci/execution.jsonl
       - name: Emit evidence
         run: |
           printf 'repository=%s\ncommit=%s\n' "$GITHUB_REPOSITORY" "$GITHUB_SHA" > conformance-evidence.txt

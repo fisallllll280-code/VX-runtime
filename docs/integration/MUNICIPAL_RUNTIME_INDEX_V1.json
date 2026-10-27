@@ -1,0 +1,22 @@
+{
+  "integration_id": "VX-MUNICIPAL-SANDBOX-READINESS",
+  "owner": "VX-runtime",
+  "federation_authority": "VAIXLNS",
+  "implementation_state": "IMPLEMENTED_LOCAL_REFERENCE",
+  "production_gate": "HOLD",
+  "agent": "VX-MUNICIPAL-VALIDATOR",
+  "capability": "municipal.sandbox.check_readiness.v1",
+  "runtime": "vxruntime/core.py",
+  "runner": "vxruntime/agent_runner.py",
+  "input_profile": "vxruntime/municipal.py",
+  "test_map": ["tests/test_municipal_runner.py", "tests/test_core.py"],
+  "reproduction": "python3 -m vxruntime.municipal_demo --output-dir /tmp/vx-municipal-test",
+  "manual": "docs/manuals/02_MUNICIPAL_RUNNER_AR.md",
+  "evidence": "docs/evidence/municipal-local-20261027/validation.json",
+  "source": "https://momah.gov.sa/ar/form/sandbox-application-form",
+  "source_relationship": "DERIVED_LOCAL_SUBSET_NOT_OFFICIAL_VALIDATOR",
+  "live_government_connection": "NOT_CONFIGURED",
+  "pdpl_scope": "PARTIAL_ENGINEERING_CONTROLS_NOT_CERTIFICATION",
+  "external_spend_sar": 0,
+  "sovereign_identifiers_allocated": false
+}

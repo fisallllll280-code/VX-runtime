@@ -71,7 +71,15 @@ No self-modification is implied by the presence of an evolution mechanism.
 
 ## Engineering status
 
-This repository currently contains the VX runtime specification. Runtime implementation must be added behind these contracts and verified by executable tests before being described as implemented.
+The deterministic reference runtime is implemented in `vxruntime/core.py` with
+capability checks, a local event ledger and replay tests. Production deployment
+and canonical admission remain separate gates; see
+`VAIXLNS_REPOSITORY_CONTRACT.md` for the existing implementation lineage.
+
+The local municipal sandbox readiness lane adds a fixed agent runner over that
+core, minimised boolean inputs, host-supplied grants, SQLite deduplication and
+reproducible test metrics. It does not connect to or submit to government systems.
+See [the activation and evidence guide](docs/manuals/02_MUNICIPAL_RUNNER_AR.md).
 نعم — هذا أقرب بكثير إلى **النواة القنونية**، لكن لا أعتمد النص كما هو حرفيًا. أعمل عليه 4 تصحيحات حتى لا يتحول الـCanonical إلى بنية فيها خلط بين **الحالة** و**إثبات الحالة** و**قرار ترقيتها**.
 
 ### الصيغة التي أراها أقوى

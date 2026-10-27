@@ -1,0 +1,23 @@
+{
+  "environment": "LOCAL_TEST",
+  "synthetic_host_grant": true,
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "scenarios_passed": 6,
+  "receipt_integrity_checks": 2,
+  "benchmark_scope": "pure local presence checker; excludes DB, network and human work",
+  "benchmark_requests": 1000,
+  "fixture_label_errors": 0,
+  "latency_ms_p50": 0.002484,
+  "latency_ms_p95": 0.002945,
+  "host_policy": {
+    "purpose": "municipal_sandbox_readiness",
+    "notice_reviewed": true,
+    "processing_basis_reviewed": true,
+    "retention_seconds": 3600
+  },
+  "live_government_e2e": "NOT_RUN",
+  "production_gate": "HOLD",
+  "external_spend_sar": 0,
+  "execution_log_sha256": "6b068840d3bfefa765367973a7c64ac8bac4116e30aaf24a9c37420283dae87f"
+}

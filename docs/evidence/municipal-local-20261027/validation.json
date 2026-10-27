@@ -1,0 +1,61 @@
+{
+  "at_utc": "2026-10-27T19:29:57.247751+00:00",
+  "source_parent_sha": "97fc6574f637984818841248ebe6b10dc36f6308",
+  "branch": "feat/municipal-governed-runner-20261027",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "result": ".......................................................................  [100%]\n71 passed in 0.35s"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "vxruntime.municipal_demo",
+        "--output-dir",
+        "<temporary_directory>"
+      ],
+      "runs": 2,
+      "exit_codes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "source_sha256": {
+    ".github/workflows/vaixlns-conformance.yml": "61466fd48a16bc0e4ad97bbd638fd76197a8c0eb80db7932a3b0d35cee62f9cd",
+    "README.md": "c6d0598bb5a87c81dfb77605d32f24e64ec90d60b6a74a64f1a155cbf0e4ac23",
+    "docs/VAIXLNS_REPOSITORY_BOUNDARY.md": "2460d317b41c495f12a6516b094274ccb835616d31dcf5a777bb1005bd245184",
+    "docs/integration/MUNICIPAL_RUNTIME_INDEX_V1.json": "ca2c588cd3168b5aa5da979fc6933db4a9153a67fc3782559150e2ee5d6d7f8e",
+    "docs/manuals/02_MUNICIPAL_RUNNER_AR.md": "544ae1e4fd0382149f4e8984a1ea4745f16ab90cf13cc35f31ae6b2d0b93de14",
+    "tests/test_municipal_runner.py": "613fe4b55479b3daec2ef801eecb2debc6c506a146d74f24b0cb7e0997b2a0e4",
+    "vxruntime/agent_runner.py": "01763c4df745e6a6d5b0ce35ad5adc322d9c39276ffd97006693589511f19151",
+    "vxruntime/municipal.py": "d0caf90cc0d7bee236e4efa72b76b74c27765ac359923c6ee40df9226b0d4c1a",
+    "vxruntime/municipal_demo.py": "6fd1ca69d468ec78f385fe7910a854b36325bf3b4cee5458ca8d778658fabc7f"
+  },
+  "artifact_sha256": {
+    "run-1-execution.jsonl": "32a9456eaa1532989a4aa330b253a586df8dd49abc4e05fb2a94a78becfb42fa",
+    "run-2-execution.jsonl": "6b068840d3bfefa765367973a7c64ac8bac4116e30aaf24a9c37420283dae87f",
+    "pytest.log": "dfcf669b7c59163be610bba1717c78764604349424204ec3650d90942954a50c",
+    "run-2-metrics.json": "4d1835a04c19531e17df0eca3d1451b08f7324bf4ac565cece75c64cc84c5758",
+    "run-1-metrics.json": "76a9066274aec0d30d0c5b6895230864dbd87fc72e6eb1bb7e15a08a967a8bad"
+  },
+  "protected_paths_tracked_in_this_repository": [],
+  "scope": "LOCAL_TEST: fixed pure worker through existing VXRuntime; synthetic grant and presence facts",
+  "government_live_e2e": "NOT_RUN",
+  "T01_T15": "NOT_RUN",
+  "production_gate": "HOLD",
+  "pdpl_certification": "NOT_CLAIMED",
+  "external_spend_sar": 0,
+  "observed_merge": {
+    "repository": "fisallllll280-code/VAIXLNS",
+    "pr": 193,
+    "sha": "0c5a7197dc81ff3f50f3c66e4d748e982920432f"
+  }
+}

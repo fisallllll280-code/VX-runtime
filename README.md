@@ -2,6 +2,12 @@
 
 VX is a governed execution core, not a generic chatbot.
 
+The optional [SCCK local admission reference](docs/manuals/03_SCCK_ADMISSION_AR.md)
+adds signed package checks, durable scoped rollback/replay rejection and atomic
+audit records. Its fixed worker inspects inert bytes through the existing core;
+asset installation and production admission remain HOLD. See the
+[integration index](docs/integration/SCCK_RUNTIME_INDEX_V1.json).
+
 ## Integrated operating model
 
 ```

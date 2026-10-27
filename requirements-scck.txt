@@ -1,0 +1,2 @@
+# Optional SCCK reference lane; the existing core remains dependency-free.
+cryptography==50.0.2

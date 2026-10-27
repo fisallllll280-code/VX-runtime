@@ -1,0 +1,79 @@
+{
+  "scope": "LOCAL_REFERENCE_SCCK_ACCEPTANCE_AND_FIXED_VX_INSPECTION",
+  "recorded_at_utc": "2026-10-27T19:49:57.590069+00:00",
+  "base_sha": "7fc4fcebb7fccdb70e379df7a52fa7826b4bb2c9",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "cryptography": "50.0.2",
+    "sqlite": "3.53.1"
+  },
+  "source_sha256": {
+    "vxruntime/scck.py": "72979c5ab5718468345af84e2a15aa23babf21aa7aa192918b546c04c2435966",
+    "vxruntime/core.py": "267f6f90e2fdf9c87d10495cc4093743f313a2e2071a63b412b8cf377ba2fac1",
+    "tests/test_scck.py": "443f7244bfc2742f4c787c9441325e24d5335fa03ba7e7d3090967d92e58e05d",
+    "requirements-scck.txt": "5a55e31ba3ec15d4ea2942fdf9e321e371a15c3fd9a35795b4b6f3de69b645d9",
+    ".github/workflows/vaixlns-conformance.yml": "6453e66f3a54eacdaa6b7cdee8a64a48ebd53c0d61dc63f844981f690ab7f90f",
+    "docs/manuals/03_SCCK_ADMISSION_AR.md": "590cb4b9b3d4795d0b3d612417c165e0791c38ee2d63690e2950d9d490bc22da",
+    "docs/integration/SCCK_RUNTIME_INDEX_V1.json": "99b83f853cb738e47868f9aeef72d1a548fcf73319782e479014b9a190613fcd",
+    "docs/design/scck-source-ar.txt": "b4169657b0397ad83761eae3be191b0ce74e11fbcee2db7915731ebdf47a23c5"
+  },
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_scck.py"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/evidence/scck-local-20261027/scck-tests.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/evidence/scck-local-20261027/all-tests.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "vxruntime",
+        "tests"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/evidence/scck-local-20261027/compile.txt"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/evidence/scck-local-20261027/diff-check.txt"
+    }
+  ],
+  "production_gate": "HOLD",
+  "independent_verification": "NOT_PERFORMED",
+  "limits": [
+    "No real asset execution or installation",
+    "No remote service or iPhone test",
+    "No Rust/no_std implementation",
+    "No physical power-loss or sustained load test",
+    "Local database and clock rollback resistance not established"
+  ],
+  "source_relationship": "Tests and report share one run/source root; not independent corroboration"
+}

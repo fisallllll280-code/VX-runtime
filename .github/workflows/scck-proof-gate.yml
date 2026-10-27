@@ -1,0 +1,44 @@
+name: VX SCCK Cryptographic Proof Gate
+
+on:
+  pull_request:
+    paths:
+      - 'scck-verifier/**'
+      - '.github/workflows/scck-proof-gate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scck-verifier/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gate-tests:
+    name: Signed asset conformance (Rust)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - name: Host conformance tests
+        run: cargo test --manifest-path scck-verifier/Cargo.toml --all-targets --verbose
+      - name: no_std WebAssembly dependency build
+        run: cargo build --manifest-path scck-verifier/Cargo.toml --target wasm32-unknown-unknown --release
+      - name: Evidence receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/scck-proof
+          printf 'repository=%s\ncommit=%s\nrust_gate=PASS\nwasm_build=PASS\nhost_state_commit=NOT_IMPLEMENTED\n' \
+            "$GITHUB_REPOSITORY" "$GITHUB_SHA" > build/scck-proof/receipt.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scck-proof-gate-evidence
+          path: build/scck-proof/receipt.txt
+          retention-days: 30

@@ -1,9 +1,4 @@
-"""Bounded test-failure triage and optional repair-adapter runner.
-
-This tool classifies common failure signatures, can pass the captured log to an
-explicitly supplied repair adapter, and reruns the test command once. It does
-not prove root cause. Use only in an isolated worktree or branch.
-"""
+"""Bounded test-failure triage and optional repair-adapter runner."""
 from __future__ import annotations
 import argparse
 import json
@@ -21,7 +16,7 @@ RULES = (
     ("TIMEOUT", r"TimeoutError|timed out|Timeout expired", "Inspect waits, external dependencies, and timeout budgets."),
     ("PERMISSION_DENIED", r"PermissionError|Permission denied|EACCES", "Check least-privilege access and runner permissions."),
     ("DEPENDENCY_CONFLICT", r"ResolutionImpossible|dependency conflict|version conflict", "Inspect pinned versions and lockfiles; avoid unbounded upgrades."),
-    ("NETWORK_OR_SERVICE", r"ConnectionError|Connection refused|Name or service not known|HTTP 5\\d\\d", "Check service availability and isolate network-dependent tests."),
+    ("NETWORK_OR_SERVICE", r"ConnectionError|Connection refused|Name or service not known|HTTP 5\d\d", "Check service availability and isolate network-dependent tests."),
     ("SYNTAX_ERROR", r"SyntaxError|IndentationError", "Inspect the first syntax error and nearby changed lines."),
     ("SECURITY_OR_POLICY_BLOCK", r"CAPABILITY_DENIED|POLICY_DENIED|blocked by policy", "Treat this as a policy decision; do not bypass the gate."),
 )
@@ -50,7 +45,7 @@ def main() -> int:
     args = parser.parse_args()
 
     first = run(args.test_command)
-    first_log = (first.stdout or "") + "\\n" + (first.stderr or "")
+    first_log = (first.stdout or "") + "\n" + (first.stderr or "")
     failures = classify(first_log) if first.returncode else []
     repair_attempted = False
     repair_returncode = None
@@ -61,7 +56,7 @@ def main() -> int:
         repair_returncode = adapter.returncode
         final = run(args.test_command)
 
-    final_log = (final.stdout or "") + "\\n" + (final.stderr or "")
+    final_log = (final.stdout or "") + "\n" + (final.stderr or "")
     report = {
         "schema_version": "1.0.0",
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -78,7 +73,7 @@ def main() -> int:
     }
     report_path = Path(args.report)
     report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({k: report[k] for k in ("initial_exit_code", "initial_failures", "repair_attempted",
           "repair_adapter_exit_code", "final_exit_code", "final_status")}, indent=2, ensure_ascii=False))
     print(f"Report: {report_path}")

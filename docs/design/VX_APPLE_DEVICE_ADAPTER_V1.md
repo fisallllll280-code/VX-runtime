@@ -36,6 +36,16 @@ Windows PnP labels are not a complete Apple protocol implementation. The initial
 
 The iPhone 17 model claim must come from an authenticated Apple device session or another trusted source; it must not be inferred from USB vendor/product identifiers alone. Recovery/DFU observations must be validated on physical hardware before any VERIFIED claim.
 
+## Windows preflight command
+
+From the repository root on Windows, run:
+
+```powershell
+python -m vxruntime.apple_preflight --output-dir "$env:USERPROFILE\Desktop\VX-Diagnostics"
+```
+
+The command writes a JSON discovery report and a non-executable Update plan. It does not update the phone.
+
 ## Test map
 
 - `vxruntime/apple_device.py`

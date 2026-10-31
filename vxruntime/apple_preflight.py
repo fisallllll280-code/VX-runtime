@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 
-from .apple_device import AppleDeviceAdapter
+from .apple_device import AppleDeviceAdapter, DetectionStatus
 
 
 def main() -> int:
@@ -47,7 +47,7 @@ def main() -> int:
         "update_plan": update_plan["status"],
         "report_path": str(destination),
     }, ensure_ascii=False))
-    return 0 if report.status is not report.status.UNAVAILABLE else 2
+    return 0 if report.status is not DetectionStatus.UNAVAILABLE else 2
 
 
 if __name__ == "__main__":

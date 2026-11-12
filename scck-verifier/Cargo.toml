@@ -1,0 +1,18 @@
+[package]
+name = "vx-scck-verifier"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "no_std verification gate for VAIXLNS SCCK asset envelopes"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+ed25519-dalek = { version = "=3.0.0", default-features = false }
+sha2 = { version = "=0.11.1", default-features = false }
+
+[features]
+default = []
